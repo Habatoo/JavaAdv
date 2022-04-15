@@ -16,7 +16,7 @@
         <constructor-arg value="John Doe"/>
     </bean>
 
-    <bean id="eventLogger" class="spring.yes.ConsoleEventLogger"/>
+    <bean id="consoleEventLogger" class="spring.yes.ConsoleEventLogger"/>
 
     <bean id="event" class="spring.yes.Event" scope="prototype">
         <constructor-arg>
@@ -27,9 +27,13 @@
         </constructor-arg>
     </bean>
 
+    <bean id="fileEventLogger" class="spring.yes.FileEventLogger" init-method="init">
+        <constructor-arg value="testfile"/>
+    </bean>
+
     <bean id="app" class="spring.yes.App">
         <constructor-arg ref="client"/>
-        <constructor-arg ref="eventLogger"/>
+        <constructor-arg ref="consoleEventLogger"/>
     </bean>
 
 
